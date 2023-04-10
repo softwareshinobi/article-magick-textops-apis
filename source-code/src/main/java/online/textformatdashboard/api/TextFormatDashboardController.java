@@ -12,9 +12,11 @@ public class TextFormatDashboardController {
 
     public TextFormatDashboardController() {
 
+        System.out.println();
         System.out.println("*** ");
         System.out.println("*** init -- textformatdashboard.online API");
         System.out.println("*** ");
+        System.out.println();
 
     }
 
