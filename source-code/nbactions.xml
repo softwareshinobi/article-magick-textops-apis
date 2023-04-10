@@ -12,8 +12,8 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>how-to-write-an-upwork-proposal-that-gets-interviews.md</exec.appArgs>
-                <exec.mainClass>online.seocontentfairy.api.textformatting.ContentFormatterApplicationRunner</exec.mainClass>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>online.textformatdashboard.api.TextFormatDashboardRunner</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.workingdir>src/test/resources</exec.workingdir>
             </properties>
@@ -30,8 +30,8 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>how-to-write-an-upwork-proposal-that-gets-interviews.md</exec.appArgs>
-                <exec.mainClass>online.seocontentfairy.api.textformatting.ContentFormatterApplicationRunner</exec.mainClass>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>online.textformatdashboard.api.TextFormatDashboardRunner</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
                 <exec.workingdir>src/test/resources</exec.workingdir>
@@ -49,9 +49,9 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>online.seocontentfairy.api.textformatting.ContentFormatterApplicationRunner</exec.mainClass>
+                <exec.mainClass>online.textformatdashboard.api.TextFormatDashboardRunner</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>how-to-write-an-upwork-proposal-that-gets-interviews.md</exec.appArgs>
+                <exec.appArgs></exec.appArgs>
                 <exec.workingdir>src/test/resources</exec.workingdir>
             </properties>
         </action>
