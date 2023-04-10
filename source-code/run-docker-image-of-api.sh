@@ -18,7 +18,7 @@ echo "*** "
 echo "*** Docker Container START: textformatdashboard.online/text-format-dashboard-api-java"
 echo "*** "
 
-docker run -p 44444:8888 textformatdashboard.online/text-format-dashboard-api-java
+docker run -p 44444:8080 textformatdashboard.online/text-format-dashboard-api-java
 
 ## 
 
