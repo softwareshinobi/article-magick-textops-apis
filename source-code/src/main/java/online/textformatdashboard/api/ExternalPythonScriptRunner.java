@@ -4,18 +4,25 @@ import java.io.*;
 
 public class ExternalPythonScriptRunner {
 
+    public static String s;
+
     public void runScript() throws IOException {
 
-        File file = new File("wfaf");
-        System.out.println("file: " + file.getAbsolutePath());
+        String pathPython = "secretsauce.py";
+        String[] cmd = new String[5];
+        cmd[0] = "python3";
+        cmd[1] = pathPython;
+        cmd[2] = "arg1";
+        cmd[3] = "arg2";
+        cmd[4] = "arg3";
+        Runtime r = Runtime.getRuntime();
 
-        //need to call myscript.py and also pass arg1 as its arguments.
-        //and also myscript.py path is in C:\Demo\myscript.py
-        String[] cmd = {
-            "ls", //  "secretsauce.py",
-        //    "hello world",
-        };
-        Runtime.getRuntime().exec(cmd);
+        Process p = r.exec(cmd);
+        BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        while ((s = in.readLine()) != null) {
+            System.out.println(s);
+        }
+
     }
 
 }
