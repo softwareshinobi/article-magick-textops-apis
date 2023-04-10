@@ -26,9 +26,11 @@ clear
 
 ##
 
+echo
 echo "*** "
 echo "*** Docker Image Build START: textformatdashboard.online/text-format-dashboard-api-java"
 echo "*** "
+echo
 
 docker build -t textformatdashboard.online/text-format-dashboard-api-java .
 
@@ -40,6 +42,8 @@ clear
 
 ##
 
+echo
 echo "*** "
 echo "*** Docker Image Build COMPLETE: textformatdashboard.online/text-format-dashboard-api-java"
 echo "*** "
+echo

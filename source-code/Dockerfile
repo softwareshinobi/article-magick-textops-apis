@@ -23,10 +23,11 @@ FROM eclipse-temurin:18-jre-alpine
 
 ## copy only the artifacts we need from the first stage and discard the rest
 
-COPY --from=MAVEN_BUILD /target/project-old-fashioned-signal-processor-1.0-SNAPSHOT.jar /project-old-fashioned-signal-processor.jar
+COPY --from=MAVEN_BUILD /target/text-format-dashboard-online-api-4.44.jar /text-format-dashboard-online-api.jar
 
 COPY --from=MAVEN_BUILD /src/main/resources/application.properties /application.properties
 COPY --from=MAVEN_BUILD /src/test/resources/conf/database.properties /conf/database.properties
 
 # set the startup command to execute the jar
-CMD ["java", "-jar", "/project-old-fashioned-signal-processor.jar"]
+
+CMD ["java", "-jar", "/text-format-dashboard-online-api.jar"]

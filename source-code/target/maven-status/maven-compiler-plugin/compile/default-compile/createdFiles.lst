@@ -1,0 +1,6 @@
+online\textformatdashboard\api\TextFormatDashboardController.class
+online\textformatdashboard\api\TextFormatDashboardRunner.class
+online\textformatdashboard\utility\SpecialTextFormattingUtility.class
+online\textformatdashboard\utility\StandardTextFormattingUtility.class
+online\textformatdashboard\utility\FileReadWriteOperationsUtility.class
+online\textformatdashboard\utility\FileReadWriteOperationsUtility$APPEND.class
