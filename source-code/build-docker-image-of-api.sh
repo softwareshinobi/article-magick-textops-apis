@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 ##
 
@@ -26,10 +26,20 @@ clear
 
 ##
 
-docker build -t textformatdashboard.online/text-format-dashboard-api-java .
+echo "*** "
+echo "*** Docker Image Build START: textformatdashboard.online/text-format-dashboard-api-java"
+echo "*** "
 
-docker run -p 44444:8888 textformatdashboard.online/text-format-dashboard-api-java
+docker build -t textformatdashboard.online/text-format-dashboard-api-java .
 
 ## 
 
-echo "fin"
+reset
+
+clear
+
+##
+
+echo "*** "
+echo "*** Docker Image Build COMPLETE: textformatdashboard.online/text-format-dashboard-api-java"
+echo "*** "

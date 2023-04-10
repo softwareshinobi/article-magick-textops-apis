@@ -13,8 +13,8 @@ RUN mvn clean package
 
 ## see what files are available 
 
-# RUN ls
-# RUN find / | grep .properties
+RUN ls
+RUN find / | grep .properties
 
 ## the second stage of our build will use open jdk 8 on alpine 3.9
 
