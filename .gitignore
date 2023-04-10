@@ -2,6 +2,11 @@
 # Compiled class file
 *.class
 
+# Java output directories
+
+target/
+source-code/target/
+
 # Log file
 *.log
 
