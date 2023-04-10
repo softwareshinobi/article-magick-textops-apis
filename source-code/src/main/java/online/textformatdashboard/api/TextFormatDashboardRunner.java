@@ -1,14 +1,16 @@
 package online.textformatdashboard.api;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.io.IOException;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class TextFormatDashboardRunner {
 
-    public static void main(String[] commandLineArguments) {
+    public static void main(String[] commandLineArguments) throws IOException {
 
-        SpringApplication.run(TextFormatDashboardRunner.class, commandLineArguments);
+        //SpringApplication.run(TextFormatDashboardRunner.class, commandLineArguments);
+        ExternalPythonScriptRunner externalPythonScriptRunner = new ExternalPythonScriptRunner();
+
+        externalPythonScriptRunner.runScript();
 
     }
 
