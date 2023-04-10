@@ -26,7 +26,7 @@ FROM eclipse-temurin:18-jre-alpine
 COPY --from=MAVEN_BUILD /target/text-format-dashboard-online-api-4.44.jar /text-format-dashboard-online-api.jar
 
 COPY --from=MAVEN_BUILD /src/main/resources/application.properties /application.properties
-COPY --from=MAVEN_BUILD /src/test/resources/conf/database.properties /conf/database.properties
+#COPY --from=MAVEN_BUILD /src/test/resources/conf/database.properties /conf/database.properties
 
 # set the startup command to execute the jar
 
