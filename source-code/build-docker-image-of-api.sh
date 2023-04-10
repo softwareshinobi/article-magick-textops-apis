@@ -16,6 +16,12 @@ clear
 
 docker system prune -a -f
 
+##
+
+git stash
+
+git reset --hard
+
 git pull
 
 ##
