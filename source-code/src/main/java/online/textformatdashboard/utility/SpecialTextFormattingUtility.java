@@ -1,4 +1,4 @@
-package online.seocontentfairy.api.textformatting;
+package online.textformatdashboard.utility;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,10 +6,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import online.softwareshinobi.oldefashioned.utility.FileUtil;
-import online.softwareshinobi.oldefashioned.utility.StringUtil;
+import online.textformatdashboard.utility.FileReadWriteOperationsUtility;
+import online.textformatdashboard.utility.StandardTextFormattingUtility;
 
-public class ContentFormatterHelperUtility {
+public class SpecialTextFormattingUtility {
 
     public static final String rewrite_DELIMITER = "!!";
 
@@ -36,7 +36,7 @@ public class ContentFormatterHelperUtility {
 //        System.exit(30);
         File tempFile = new File(UUID.randomUUID() + ".txt");
 
-        FileUtil.writeToFile(content, tempFile);
+        FileReadWriteOperationsUtility.writeToFile(content, tempFile);
 
         String returnString = facade(tempFile);
 
@@ -48,36 +48,36 @@ public class ContentFormatterHelperUtility {
 
     private static String facade(File filePath) {
 
-        List<String> contentFromFile = ContentFormatterHelperUtility.parseFileLinesFromFile(filePath);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-1-simple-save.md"));
+        List<String> contentFromFile = SpecialTextFormattingUtility.parseFileLinesFromFile(filePath);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-1-simple-save.md"));
 
-        contentFromFile = ContentFormatterHelperUtility.removeEmptyContent(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-2-remove-spaces.md"));
+        contentFromFile = SpecialTextFormattingUtility.removeEmptyContent(contentFromFile);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-2-remove-spaces.md"));
 
-        contentFromFile = ContentFormatterHelperUtility.removeBadContent(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-2-bad-content-spaces.md"));
+        contentFromFile = SpecialTextFormattingUtility.removeBadContent(contentFromFile);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-2-bad-content-spaces.md"));
 
-        contentFromFile = ContentFormatterHelperUtility.toLowerCaseAll(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-3-to-lowercase.md"));
+        contentFromFile = SpecialTextFormattingUtility.toLowerCaseAll(contentFromFile);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-3-to-lowercase.md"));
 
-        contentFromFile = ContentFormatterHelperUtility.splitContent(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-4-split-sentences.md"));
+        contentFromFile = SpecialTextFormattingUtility.splitContent(contentFromFile);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-4-split-sentences.md"));
 
-        contentFromFile = ContentFormatterHelperUtility.capitalizeContent(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
+        contentFromFile = SpecialTextFormattingUtility.capitalizeContent(contentFromFile);
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
 
 //        contentFromFile = ContentFormatterHelperUtility.addSpacesAndStuff(contentFromFile);
 //        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-7-add-spaces-and-stuff.md"));
         contentFromFile = prepContentForRewriteFormat(contentFromFile);
-        FileUtil.writeToFile(contentFromFile, new File(filePath + "convert-to-rewrite-format.dat.rytr"));
+        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "convert-to-rewrite-format.dat.rytr"));
 
         File fff = new File(filePath + "-final.md");
         fff.delete();
 
-        ContentFormatterHelperUtility.writeFinalFile(contentFromFile, fff);
+        SpecialTextFormattingUtility.writeFinalFile(contentFromFile, fff);
         //   FileUtil.writeToFile(contentFromFile, new File(filePath + "-final.md"));
 
-        ContentFormatterHelperUtility.printCurrentContent(contentFromFile);
+        SpecialTextFormattingUtility.printCurrentContent(contentFromFile);
 
         StringBuilder buf = new StringBuilder();
 
@@ -108,7 +108,7 @@ public class ContentFormatterHelperUtility {
     public static List<String> parseFileLinesFromFile(final File file) {
 
         //   System.out.println("stating...");
-        String[] c = FileUtil.readFileContents(file);
+        String[] c = FileReadWriteOperationsUtility.readFileContents(file);
         List<String> list = new ArrayList();
         for (String cc : c) {
             // System.out.println("c: " + cc);
@@ -200,7 +200,7 @@ public class ContentFormatterHelperUtility {
 
             if (cc.trim().startsWith("#")) {
                 //    System.out.println("skipping b/c header");
-                list.add(StringUtil.toBookCase(cc));
+                list.add(StandardTextFormattingUtility.toBookCase(cc));
                 continue;
             }
 
@@ -210,7 +210,7 @@ public class ContentFormatterHelperUtility {
             for (final String split : splitOut) {
 
                 System.out.println("split: " + split);
-                list.add(StringUtil.toSentenceCase(split) + ".");
+                list.add(StandardTextFormattingUtility.toSentenceCase(split) + ".");
             }
         }
         return list;
@@ -277,7 +277,7 @@ public class ContentFormatterHelperUtility {
 //                System.out.println("result from api:");
 //                System.out.println(result);
                 System.exit(30);
-                String rewrittenText = StringUtil.toLeetSpeak(isolatedRight);
+                String rewrittenText = StandardTextFormattingUtility.toLeetSpeak(isolatedRight);
                 System.out.println(" -> -> rewriten: " + rewrittenText);
 
                 //  String s = " [ " + cc + SPECIAL_DELIMITER + cc + " ] ";
@@ -308,7 +308,7 @@ public class ContentFormatterHelperUtility {
 
     public static void writeFinalFile(List<String> contentFromFile, File file) {
         for (String x : contentFromFile) {
-            FileUtil.writeToFile(x, file);
+            FileReadWriteOperationsUtility.writeToFile(x, file);
         }
     }
 

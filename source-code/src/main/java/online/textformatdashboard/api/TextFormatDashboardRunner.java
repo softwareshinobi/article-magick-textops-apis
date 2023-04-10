@@ -1,14 +1,14 @@
-package online.seocontentfairy.api.textformatting;
+package online.textformatdashboard.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContentFormatterApplicationRunner {
+public class TextFormatDashboardRunner {
 
     public static void main(String[] commandLineArguments) {
 
-        SpringApplication.run(ContentFormatterApplicationRunner.class, commandLineArguments);
+        SpringApplication.run(TextFormatDashboardRunner.class, commandLineArguments);
 
     }
 

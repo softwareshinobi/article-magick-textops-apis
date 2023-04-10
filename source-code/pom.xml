@@ -1,83 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
+    <parent>
 
-		<groupId>org.springframework.boot</groupId>
+        <groupId>org.springframework.boot</groupId>
 
-		<artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>spring-boot-starter-parent</artifactId>
 
-		<version>3.0.2</version>
+        <version>3.0.2</version>
 
-		<relativePath/>
+        <relativePath/>
                 
-	</parent>
+    </parent>
 
-	<groupId>online.seocontentfairy</groupId>
+    <groupId>online.textformatdashboard</groupId>
 
-	<artifactId>seo-content-fairy-rewrite-api</artifactId>
+    <artifactId>text-format-dashboard-online-api</artifactId>
 
-	<version>1.0-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
-	<name>seo-content-fairy-rewrite-api</name>
+    <name>text-format-dashboard-online-api</name>
 
-	<description>Rewrites Content Using the Rytr API
-</description>
+    <description>
+        
+        Backend REST API for the text format dashboard located at
+        
+        www.textformatdashboard.online
+        
+    </description>
 
-	<properties>
+    <properties>
 
-		<java.version>17</java.version>
+        <java.version>17</java.version>
 
-	</properties>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
- 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-<dependency>
-  <groupId>com.github.kevinsawicki</groupId>
-  <artifactId>http-request</artifactId>
-  <version>6.0</version>
-</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
+        </dependency>               
+        
+    </dependencies>
+        
+    <build>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+        <plugins>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
 
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20200518</version>
-		</dependency>
-	 <dependency>
-	  <groupId>online.project.oldfashioned</groupId>
-	  <artifactId>project-old-fashioned-signal-processor</artifactId>
-	  <version>1.0-SNAPSHOT</version>
-	 </dependency>
-	</dependencies>
+        </plugins>
 
-	<build>
-
-		<plugins>
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-		</plugins>
-
-	</build>
+    </build>
 
 </project>

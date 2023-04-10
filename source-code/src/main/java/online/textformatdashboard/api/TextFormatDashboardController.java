@@ -1,16 +1,16 @@
-package online.seocontentfairy.textformatting.api;
+package online.textformatdashboard.api;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import online.seocontentfairy.api.textformatting.ContentFormatterHelperUtility;
+import online.textformatdashboard.utility.SpecialTextFormattingUtility;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/text-conversion")
-public class ContentFormatterRestController {
+public class TextFormatDashboardController {
 
-    public ContentFormatterRestController() {
+    public TextFormatDashboardController() {
         System.out.println("init -- SEO Content Fairy Rewrite API");
     }
 
@@ -25,7 +25,7 @@ public class ContentFormatterRestController {
         System.out.println("the user string: ");
         System.out.println(userContentToBeRewritter);
 
-        String returnC = ContentFormatterHelperUtility.facade(userContentToBeRewritter);
+        String returnC = SpecialTextFormattingUtility.facade(userContentToBeRewritter);
         System.out.println("retunr c: " + returnC);
         return returnC;
     }
@@ -38,6 +38,6 @@ public class ContentFormatterRestController {
         System.out.println("the user string: ");
         System.out.println(userContentToBeRewritter);
 
-        return ContentFormatterHelperUtility.rew333rite(userContentToBeRewritter);
+        return SpecialTextFormattingUtility.rew333rite(userContentToBeRewritter);
     }
 }
