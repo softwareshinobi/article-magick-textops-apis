@@ -12,9 +12,9 @@ public class ExternalPythonScriptRunner {
         //need to call myscript.py and also pass arg1 as its arguments.
         //and also myscript.py path is in C:\Demo\myscript.py
         String[] cmd = {
-            "python3",
-            "secretsauce.py",
-            "hello world",};
+            "ls -lha", //  "secretsauce.py",
+        //    "hello world",
+        };
         Runtime.getRuntime().exec(cmd);
     }
 
