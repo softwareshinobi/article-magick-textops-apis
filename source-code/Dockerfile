@@ -21,6 +21,8 @@ RUN mvn clean package
 
 FROM eclipse-temurin:18-jre-alpine
 
+RUN apk add py3-pip
+
 ## copy only the artifacts we need from the first stage and discard the rest
 
 COPY --from=MAVEN_BUILD /target/text-format-dashboard-online-api-4.44.jar /text-format-dashboard-online-api.jar
