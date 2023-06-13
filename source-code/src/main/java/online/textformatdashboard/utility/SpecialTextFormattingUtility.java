@@ -6,8 +6,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import online.textformatdashboard.utility.FileReadWriteOperationsUtility;
-import online.textformatdashboard.utility.StandardTextFormattingUtility;
 
 public class SpecialTextFormattingUtility {
 
@@ -19,26 +17,15 @@ public class SpecialTextFormattingUtility {
 
     public static final String OUTER_DELIMITER = "";
 
-    public static String facade(String content) {
-        System.out.println("enter facade");
-//        Map<String, String> data = new HashMap<>();
-//        data.put("title", "A dagfafasfasdfsafsaasfffsfasffsf");
-//        //data.put("state", "CA");
-//
-//        String result = HttpRequest.post("http://localhost:8080/text-conversion/format-text-content").form(data).body();
-////        if (HttpRequest.post("http://localhost:8080/text-conversion/format-text-content").form(data)..created()) {
-////            System.out.println("User was created");
-////        }
-//        System.out.println("Usedddddr was created");
-//        System.out.println("result from api:");
-//        System.out.println(result);
-//        System.out.println("exit facade");
-//        System.exit(30);
+    public static String cleanAndFormatText(String content) {
+
+        System.out.println("enter :: cleanAndFormatText()");
+
         File tempFile = new File(UUID.randomUUID() + ".txt");
 
         FileReadWriteOperationsUtility.writeToFile(content, tempFile);
 
-        String returnString = facade(tempFile);
+        String returnString ="\n\n"+ cleanAndFormatText(tempFile)+"\n\n" ;
 
         tempFile.delete();
         tempFile = null;
@@ -46,7 +33,7 @@ public class SpecialTextFormattingUtility {
         return returnString;
     }
 
-    private static String facade(File filePath) {
+    private static String cleanAndFormatText(File filePath) {
 
         List<String> contentFromFile = SpecialTextFormattingUtility.parseFileLinesFromFile(filePath);
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-1-simple-save.md"));
@@ -60,15 +47,18 @@ public class SpecialTextFormattingUtility {
         contentFromFile = SpecialTextFormattingUtility.toLowerCaseAll(contentFromFile);
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-3-to-lowercase.md"));
 
-        contentFromFile = SpecialTextFormattingUtility.splitContent(contentFromFile);
+        contentFromFile = SpecialTextFormattingUtility.splitContentOnPeriods(contentFromFile);
+        contentFromFile = SpecialTextFormattingUtility.splitContentOnQuestionMarks(contentFromFile);
+
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-4-split-sentences.md"));
 
-        contentFromFile = SpecialTextFormattingUtility.capitalizeContent(contentFromFile);
-        FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
+       contentFromFile = SpecialTextFormattingUtility.capitalizeContent(contentFromFile);
+     ///   FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
 
-//        contentFromFile = ContentFormatterHelperUtility.addSpacesAndStuff(contentFromFile);
+       contentFromFile = SpecialTextFormattingUtility.addSpacesAndStuff(contentFromFile);
 //        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-7-add-spaces-and-stuff.md"));
-        contentFromFile = prepContentForRewriteFormat(contentFromFile);
+
+    //    contentFromFile = prepContentForRewriteFormat(contentFromFile);
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "convert-to-rewrite-format.dat.rytr"));
 
         File fff = new File(filePath + "-final.md");
@@ -81,10 +71,12 @@ public class SpecialTextFormattingUtility {
 
         StringBuilder buf = new StringBuilder();
 
-        for (Object o : contentFromFile) {
-            buf.append(o);
+        for (String o : contentFromFile) {
             buf.append("\n");
-            buf.append("\n");
+            buf.append(o.trim());
+            //buf.append(o);
+        /////    buf.append("\n");
+
         }
         return buf.toString().trim();
     }
@@ -114,7 +106,7 @@ public class SpecialTextFormattingUtility {
             // System.out.println("c: " + cc);
 
             if (!cc.trim().isBlank()) {
-                list.add(cc);
+                list.add(cc.trim());
             }
         }
         return list;
@@ -161,7 +153,7 @@ public class SpecialTextFormattingUtility {
         }
     }
 
-    public static List<String> splitContent(List<String> content) {
+    public static List<String> splitContentOnPeriods(List<String> content) {
         System.out.println();
         System.out.println("list of all strings to process");
         System.out.println();
@@ -177,13 +169,40 @@ public class SpecialTextFormattingUtility {
                 continue;
             }
 
-            String[] splitOut = cc.split("\\.");
+            String[] splitOut = cc.split("[\\.;]");
 
             System.out.println("out: " + cc);
             for (final String split : splitOut) {
 
                 System.out.println("split: " + split);
                 list.add(split + ".");
+            }
+        }
+        return list;
+    }
+    public static List<String> splitContentOnQuestionMarks(List<String> content) {
+        System.out.println();
+        System.out.println("list of all strings to process");
+        System.out.println();
+        List<String> list = new ArrayList();
+        for (final String cc : content) {
+
+            System.out.println("in: " + cc);
+
+            if (cc.trim().startsWith("#")) {
+                //    System.out.println("skipping b/c header");
+                list.add(cc);
+//     list.add(StringUtil.toBookCase(cc));
+                continue;
+            }
+
+            String[] splitOut = cc.split("\\?");
+
+            System.out.println("out: " + cc);
+            for (final String split : splitOut) {
+
+                System.out.println("???: " + split);
+             if(!split.endsWith(".")) {  list.add(split + "?");}else{list.add(split);}
             }
         }
         return list;
@@ -222,7 +241,7 @@ public class SpecialTextFormattingUtility {
         System.out.println();
         List<String> list = new ArrayList();
 
-        String BLANKLINE = "";
+        String BLANKLINE = "\n";
 
         for (final String cc : content) {
 
@@ -255,32 +274,16 @@ public class SpecialTextFormattingUtility {
 
             if (originalText.startsWith(rewrite_DELIMITER)) {
 
-                //    System.out.println("marked for rewrite: " + text);
-                //   rewriteOrderList.add(text);
                 System.out.println(" -> rewrite: " + originalText);
 
                 String isolatedLeft = originalText.split(SPECIAL_DELIMITER)[0].replaceFirst(rewrite_DELIMITER, emptystring);
-                //    System.out.println(" -> -> isolated: " + isolatedRight);
 
                 String isolatedRight = originalText.split(SPECIAL_DELIMITER)[1];
                 System.out.println(" -> -> isolated: " + isolatedRight);
 
-//                Map<String, String> data = new HashMap<>();
-//                data.put("title", "A User");
-//                //data.put("state", "CA");
-//
-//                String result = HttpRequest.post("http://localhost:8080/text-conversion/format-text-content").form(data).body();
-////        if (HttpRequest.post("http://localhost:8080/text-conversion/format-text-content").form(data)..created()) {
-////            System.out.println("User was created");
-////        }
-//                System.out.println("Usedddddr was created");
-//                System.out.println("result from api:");
-//                System.out.println(result);
-                System.exit(30);
                 String rewrittenText = StandardTextFormattingUtility.toLeetSpeak(isolatedRight);
                 System.out.println(" -> -> rewriten: " + rewrittenText);
 
-                //  String s = " [ " + cc + SPECIAL_DELIMITER + cc + " ] ";
                 String AA = OUTER_DELIMITER + isolatedLeft + SPECIAL_DELIMITER + rewrittenText + OUTER_DELIMITER;
                 System.out.println(" <- rewritten: " + AA);
 

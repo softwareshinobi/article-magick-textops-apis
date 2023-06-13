@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fcf8dae-c1e8-40e8-b780-fbdc2b77f4c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/api/ExternalPythonScriptRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/api/TextFormatDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/api/TextFormatDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/api/TextFormatDashboardRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/api/TextFormatDashboardRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/utility/SpecialTextFormattingUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/online/textformatdashboard/utility/SpecialTextFormattingUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/technical-writing/Documents/textformatdashboard.online/text-format-dashboard-api-java/source-code&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "B:/article-writing-magick-standard-text-api-java/source-code"
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="TextFormatDashboardRunner" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="online.textformatdashboard.api.TextFormatDashboardRunner" />
-      <module name="text-format-dashboard-online-api" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

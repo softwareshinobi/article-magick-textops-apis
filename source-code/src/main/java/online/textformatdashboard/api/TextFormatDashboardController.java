@@ -1,7 +1,5 @@
 package online.textformatdashboard.api;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import online.textformatdashboard.utility.SpecialTextFormattingUtility;
 import online.textformatdashboard.utility.TextWorkerUtility;
 import org.json.JSONObject;
@@ -27,25 +25,19 @@ public class TextFormatDashboardController {
         return "textformatdashboard.online API Is Up!";
     }
 
-    @GetMapping("/hello-world")
-    public String respondHelloWorld() {
-        return "Hello World!";
-    }
-
-    @GetMapping("/hello-universe")
-    public String respondHelloUniverse() {
-        return "Hello, Universe!";
-    }
-
     @PostMapping("/simple-text-format")
-    public String prepareTextContentForRewriting(@RequestBody String userContentToBeRewritter) {
+    public String prepareTextContentForRewriting(@RequestBody String textContentToBeFormatted) {
 
-       System.out.println("the user string: ");
-        System.out.println(userContentToBeRewritter);
-        String returnC = SpecialTextFormattingUtility.facade(userContentToBeRewritter);
+        System.out.println("textContentToBeFormatted: ");
+        System.out.println(textContentToBeFormatted);
 
-        // System.out.println("retunr c: " + returnC);
-        return returnC;
+        String formattedTextContent = SpecialTextFormattingUtility.cleanAndFormatText(textContentToBeFormatted);
+
+        formattedTextContent = formattedTextContent.replaceAll("\\?\\.","?");
+
+        formattedTextContent= formattedTextContent.trim();
+
+        return formattedTextContent;
     }
 
     @PostMapping("/calculate-text-percentage-difference")
@@ -58,30 +50,24 @@ public class TextFormatDashboardController {
         System.out.println("the user string: ");
         System.out.println(userContentToBeRewritter);
 
-        String  originalContent=   ox.getString("originalContent");
-                String   rewrittenContent= ox.getString("rewrittenContent");
+        String originalContent = ox.getString("originalContent")
+                .toLowerCase().replaceAll("\\n+"," ").replaceAll("\\s+"," ").trim();
 
-                System.out.println("originalContent: "+ originalContent);
-        System.out.println("rewrittenContent: "+ rewrittenContent);
+        String rewrittenContent = ox.getString("rewrittenContent")
+                .toLowerCase().replaceAll("\\n+"," ").replaceAll("\\s+"," ").trim();
+
+        System.out.println("originalContent:  " + originalContent);
+        System.out.println("rewrittenContent: " + rewrittenContent);
 
         Double returnC = TextWorkerUtility.calculateTextSimilarityPercentage(
                 originalContent,
                 rewrittenContent
         );
 
-        System.out.println(" returning: "+returnC);
+        System.out.println(" returning: " + returnC);
         System.out.println(" enter :: calculateTextPercentageDifference()");
 
         return returnC;
     }
-    //@PostMapping("/selective-rewrite-text-content")
-    public String rewriteFormattedContent(@RequestBody String userContentToBeRewritter) throws IOException, InterruptedException, URISyntaxException {
 
-        System.out.println(" enter :: rewriteFormattedContent()");
-
-        System.out.println("the user string: ");
-        System.out.println(userContentToBeRewritter);
-
-        return SpecialTextFormattingUtility.rew333rite(userContentToBeRewritter);
-    }
 }
