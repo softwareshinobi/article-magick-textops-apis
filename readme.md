@@ -1,1 +1,3 @@
-A RESTFul Spring API that performs text manipulation operations to clean, massage and transform text.
+# article-writing-magick-standard-text-api-java
+
+article-writing-magick-standard-text-api-java

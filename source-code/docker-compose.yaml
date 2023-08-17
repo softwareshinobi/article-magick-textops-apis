@@ -1,23 +1,19 @@
 version: '3'
 
-networks:
-
-  text-format-dashboard-online:
-    external: false
-
 services:
 
-  text-format-dashboard-online-api:
+  article-writing-magick-standard-text-api-java:
 
-    container_name: text-format-dashboard-online-api
+    container_name: article-writing-magick-standard-text-api-java
 
-    image: textformatdashboard.online/text-format-dashboard-api-java:latest
+    image: softwareshinobi/article-writing-magick-standard-text-api-java:latest
 
     restart: unless-stopped
 
-    networks:
-      - text-format-dashboard-online
-
     ports:
 
-      - "44444:8080"
+      - "37032:8080"
+
+    environment:
+
+      - 'article-writing-magick'
