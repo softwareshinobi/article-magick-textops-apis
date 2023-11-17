@@ -28,10 +28,28 @@ public class TextFormatDashboardController {
     @PostMapping("/simple-text-format")
     public String prepareTextContentForRewriting(@RequestBody String textContentToBeFormatted) {
 
-        System.out.println("textContentToBeFormatted: ");
+        System.out.println(" enter :: prepareTextContentForRewriting()");
+
+        System.out.println("textContentToBeFormatted");
         System.out.println(textContentToBeFormatted);
 
-        String formattedTextContent = SpecialTextFormattingUtility.cleanAndFormatText(textContentToBeFormatted);
+                JSONObject ox = new JSONObject(textContentToBeFormatted);
+       
+ System.out.println("JSONObject: ");
+        System.out.println(ox);
+
+String originalContent = ox.getString("originalContent");
+              //  .toLowerCase().replaceAll("\\n+"," ").replaceAll("\\s+"," ").trim();
+
+
+
+
+
+
+
+       // System.out.println("originalContent: ");
+     //   System.out.println(originalContent);
+        String formattedTextContent = SpecialTextFormattingUtility.cleanAndFormatText(originalContent);
 
         formattedTextContent = formattedTextContent.replaceAll("\\?\\.","?");
 
@@ -65,7 +83,7 @@ public class TextFormatDashboardController {
         );
 
         System.out.println(" returning: " + returnC);
-        System.out.println(" enter :: calculateTextPercentageDifference()");
+        System.out.println(" exit :: calculateTextPercentageDifference()");
 
         return returnC;
     }
