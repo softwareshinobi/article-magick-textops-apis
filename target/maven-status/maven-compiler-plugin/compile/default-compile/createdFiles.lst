@@ -1,7 +1,7 @@
-online/textformatdashboard/utility/StandardTextFormattingUtility.class
-online/textformatdashboard/api/TextFormatDashboardController.class
-online/textformatdashboard/utility/SpecialTextFormattingUtility.class
-online/textformatdashboard/utility/FileReadWriteOperationsUtility.class
-online/textformatdashboard/api/TextFormatDashboardRunner.class
-online/textformatdashboard/utility/TextWorkerUtility.class
-online/textformatdashboard/utility/FileReadWriteOperationsUtility$APPEND.class
+digital/softwareshinobi/articlemagick/ArticleMagickAPI.class
+digital/softwareshinobi/articlemagick/util/TextWorkerUtility.class
+digital/softwareshinobi/articlemagick/util/FileReadWriteOperationsUtility.class
+digital/softwareshinobi/articlemagick/util/StandardTextFormattingUtility.class
+digital/softwareshinobi/articlemagick/util/FileReadWriteOperationsUtility$APPEND.class
+digital/softwareshinobi/articlemagick/api/ArticleMagickController.class
+digital/softwareshinobi/articlemagick/util/SpecialTextFormattingUtility.class

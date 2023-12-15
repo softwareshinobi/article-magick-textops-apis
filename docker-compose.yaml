@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  article-writing-magick-standard-text-api-java:
+
+    container_name: article-writing-magick-standard-text-api-java
+
+    image: softwareshinobi/article-writing-magick-standard-text-api-java:latest
+
+    restart: unless-stopped
+
+    ports:
+
+      - "37032:8080"
+
+    environment:
+
+      - 'article-writing-magick'

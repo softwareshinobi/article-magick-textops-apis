@@ -1,6 +1,6 @@
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/api/TextFormatDashboardController.java
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/utility/StandardTextFormattingUtility.java
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/api/TextFormatDashboardRunner.java
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/utility/FileReadWriteOperationsUtility.java
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/utility/SpecialTextFormattingUtility.java
-/home/software-shinobi/Desktop/article-magick-api/src/main/java/online/textformatdashboard/utility/TextWorkerUtility.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/utility/StandardTextFormattingUtility.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/utility/FileReadWriteOperationsUtility.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/utility/TextWorkerUtility.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/api/TextFormatDashboardController.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/utility/SpecialTextFormattingUtility.java
+/home/software-shinobi/Desktop/article-magick/article-magick-api/src/main/java/online/textformatdashboard/api/TextFormatDashboardRunner.java
