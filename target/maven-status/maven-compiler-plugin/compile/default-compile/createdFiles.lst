@@ -3,5 +3,5 @@ digital/softwareshinobi/articlemagick/util/TextWorkerUtility.class
 digital/softwareshinobi/articlemagick/util/FileReadWriteOperationsUtility.class
 digital/softwareshinobi/articlemagick/util/StandardTextFormattingUtility.class
 digital/softwareshinobi/articlemagick/util/FileReadWriteOperationsUtility$APPEND.class
-digital/softwareshinobi/articlemagick/api/ArticleMagickController.class
 digital/softwareshinobi/articlemagick/util/SpecialTextFormattingUtility.class
+digital/softwareshinobi/articlemagick/controller/ArticleMagickController.class

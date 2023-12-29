@@ -1,7 +1,8 @@
-package digital.softwareshinobi.articlemagick.api;
+package digital.softwareshinobi.articlemagick.controller;
 
 import digital.softwareshinobi.articlemagick.util.SpecialTextFormattingUtility;
 import digital.softwareshinobi.articlemagick.util.TextWorkerUtility;
+import java.util.Map;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,27 +21,27 @@ public class ArticleMagickController {
 
     }
 
-        @GetMapping("/")
+    @GetMapping("/")
     public String landing() {
-        
+
         return "ArticleMagickController API";
-        
+
     }
-    
+
     @GetMapping("/health-check")
-    public String returnHealthCheckContentJSON() {
-        
+    public String healthCheck() {
+
         return "ArticleMagickController API Is Up!";
-        
+
     }
 
     @PostMapping({"/convert-to-permalink"})
     public String convertToPermalink(@RequestBody final String textToConvert) {
 
         System.out.println("hello?");
-        
-        System.out.println("textToConvert?"+textToConvert);
-        
+
+        System.out.println("textToConvert?" + textToConvert);
+
         String formattedTextContent = textToConvert.toLowerCase().trim().replaceAll("[\\n\\s]+", "-");
 
         formattedTextContent = formattedTextContent.replaceAll("\\?\\.", "?");
@@ -52,18 +53,18 @@ public class ArticleMagickController {
     }
 
     @PostMapping("/simple-text-format")
-    public String prepareTextContentForRewriting(@RequestBody String textContentToBeFormatted) {
+    public String simpleTextFormat(@RequestBody String textContentToBeFormatted) {
 
-        System.out.println(" enter :: prepareTextContentForRewriting()");
+        System.out.println("enter :: simpleTextFormat()");
 
         System.out.println("textContentToBeFormatted");
-        
+
         System.out.println(textContentToBeFormatted);
 
         JSONObject ox = new JSONObject(textContentToBeFormatted);
 
         System.out.println("JSONObject: ");
-        
+
         System.out.println(ox);
 
         String originalContent = ox.getString("originalContent");
@@ -75,19 +76,19 @@ public class ArticleMagickController {
         formattedTextContent = formattedTextContent.trim();
 
         return formattedTextContent;
-        
+
     }
 
-    @PostMapping("/calculate-text-percentage-difference")
-    public Double calculateTextPercentageDifference(@RequestBody String userContentToBeRewritter) {
+    @PostMapping("/calculate-text-similarity-percentage")
+    public Double calculateTextSimilarityPercentage(@RequestBody Map requestPayLoad) {
 
-        System.out.println(" enter :: calculateTextPercentageDifference()");
+        System.out.println("enter > calculateTextSimilarityPercentage()");
 
-        JSONObject ox = new JSONObject(userContentToBeRewritter);
+        JSONObject ox = new JSONObject(requestPayLoad);
 
-        System.out.println("the user string: ");
-        
-        System.out.println(userContentToBeRewritter);
+        System.out.println("requestPayLoad / " + requestPayLoad);
+
+        System.out.println(requestPayLoad);
 
         String originalContent = ox.getString("originalContent")
                 .toLowerCase().replaceAll("\\n+", " ").replaceAll("\\s+", " ").trim();
@@ -95,21 +96,24 @@ public class ArticleMagickController {
         String rewrittenContent = ox.getString("rewrittenContent")
                 .toLowerCase().replaceAll("\\n+", " ").replaceAll("\\s+", " ").trim();
 
-        System.out.println("originalContent:  " + originalContent);
-        
-        System.out.println("rewrittenContent: " + rewrittenContent);
+        System.out.println("content / original / " + originalContent);
 
-        Double returnC = TextWorkerUtility.calculateTextSimilarityPercentage(
+        System.out.println("content / rewrite / " + rewrittenContent);
+
+        Double textSimilarityPercentage = TextWorkerUtility.calculateTextSimilarityPercentage(
+                                
                 originalContent,
+                
                 rewrittenContent
+                
         );
 
-        System.out.println(" returning: " + returnC);
-        
-        System.out.println(" exit :: calculateTextPercentageDifference()");
+        System.out.println(" return / " + textSimilarityPercentage);
 
-        return returnC;
-        
+        System.out.println("exit < calculateTextSimilarityPercentage()");
+
+        return textSimilarityPercentage;
+
     }
 
 }
