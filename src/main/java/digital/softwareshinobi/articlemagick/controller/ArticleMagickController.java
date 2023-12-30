@@ -3,19 +3,18 @@ package digital.softwareshinobi.articlemagick.controller;
 import digital.softwareshinobi.articlemagick.util.SpecialTextFormattingUtility;
 import digital.softwareshinobi.articlemagick.util.TextWorkerUtility;
 import java.util.Map;
-import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("")
+@RequestMapping("article-magick")
 public class ArticleMagickController {
 
     public ArticleMagickController() {
 
         System.out.println();
         System.out.println("##");
-        System.out.println("## init > ArticleMagickController");
+        System.out.println("## init > Article Magick Controller");
         System.out.println("##");
         System.out.println();
 
@@ -24,95 +23,78 @@ public class ArticleMagickController {
     @GetMapping("/")
     public String landing() {
 
-        return "ArticleMagickController API";
+        return "Article Magick API";
 
     }
 
     @GetMapping("/health-check")
     public String healthCheck() {
 
-        return "ArticleMagickController API Is Up!";
+        return "Article Magick API is RUNNING";
 
     }
 
-    @PostMapping({"/convert-to-permalink"})
-    public String convertToPermalink(@RequestBody final String textToConvert) {
+    @PostMapping("/simple-format")
+    public String simpleTextFormat(@RequestBody Map requestPayLoad) {
 
-        System.out.println("hello?");
+        System.out.println("enter > simpleTextFormat()");
 
-        System.out.println("textToConvert?" + textToConvert);
+        System.out.println("requestPayLoad / " + requestPayLoad);
 
-        String formattedTextContent = textToConvert.toLowerCase().trim().replaceAll("[\\n\\s]+", "-");
+        String dirtyText = requestPayLoad.get("originalContent").toString();
 
-        formattedTextContent = formattedTextContent.replaceAll("\\?\\.", "?");
+        System.out.println("content / original / " + dirtyText);
 
-        formattedTextContent = formattedTextContent.trim();
+        String cleanText = SpecialTextFormattingUtility.cleanAndFormatText(dirtyText);
 
-        return formattedTextContent;
+        cleanText = cleanText.replaceAll("\\?\\.", "?").trim();
 
-    }
+        System.out.println("return / " + cleanText);
 
-    @PostMapping("/simple-text-format")
-    public String simpleTextFormat(@RequestBody String textContentToBeFormatted) {
+        System.out.println("exit < simpleTextFormat()");
 
-        System.out.println("enter :: simpleTextFormat()");
-
-        System.out.println("textContentToBeFormatted");
-
-        System.out.println(textContentToBeFormatted);
-
-        JSONObject ox = new JSONObject(textContentToBeFormatted);
-
-        System.out.println("JSONObject: ");
-
-        System.out.println(ox);
-
-        String originalContent = ox.getString("originalContent");
-
-        String formattedTextContent = SpecialTextFormattingUtility.cleanAndFormatText(originalContent);
-
-        formattedTextContent = formattedTextContent.replaceAll("\\?\\.", "?");
-
-        formattedTextContent = formattedTextContent.trim();
-
-        return formattedTextContent;
+        return cleanText;
 
     }
 
-    @PostMapping("/calculate-text-similarity-percentage")
+    @PostMapping("/calculate-similarity")
     public Double calculateTextSimilarityPercentage(@RequestBody Map requestPayLoad) {
 
         System.out.println("enter > calculateTextSimilarityPercentage()");
 
-        JSONObject ox = new JSONObject(requestPayLoad);
-
         System.out.println("requestPayLoad / " + requestPayLoad);
 
-        System.out.println(requestPayLoad);
-
-        String originalContent = ox.getString("originalContent")
-                .toLowerCase().replaceAll("\\n+", " ").replaceAll("\\s+", " ").trim();
-
-        String rewrittenContent = ox.getString("rewrittenContent")
+        String originalContent = requestPayLoad.get("originalContent").toString()
                 .toLowerCase().replaceAll("\\n+", " ").replaceAll("\\s+", " ").trim();
 
         System.out.println("content / original / " + originalContent);
 
+        String rewrittenContent = requestPayLoad.get("rewrittenContent").toString()
+                .toLowerCase().replaceAll("\\n+", " ").replaceAll("\\s+", " ").trim();
+
         System.out.println("content / rewrite / " + rewrittenContent);
 
         Double textSimilarityPercentage = TextWorkerUtility.calculateTextSimilarityPercentage(
-                                
                 originalContent,
-                
                 rewrittenContent
-                
         );
 
-        System.out.println(" return / " + textSimilarityPercentage);
+        System.out.println("return / " + textSimilarityPercentage);
 
         System.out.println("exit < calculateTextSimilarityPercentage()");
 
         return textSimilarityPercentage;
+
+    }
+
+    @PostMapping("/convert-permalink")
+    public String convertToPermalink(@RequestBody final String textToConvert) {
+
+        String formattedTextContent = textToConvert.toLowerCase().trim().replaceAll("[\\n\\s]+", "-");
+
+        formattedTextContent = formattedTextContent.replaceAll("\\?\\.", "?").trim();
+
+        return formattedTextContent;
 
     }
 

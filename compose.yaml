@@ -6,7 +6,7 @@ services:
 
         container_name: article-magick-api
         
-        image: article-magick-api
+        image: softwareshinobi/article-magick-api:2.4
 
         build: 
 
