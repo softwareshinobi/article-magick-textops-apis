@@ -1,4 +1,4 @@
-package digital.softwareshinobi.articlemagick.util;
+package digital.softwareshinobi.articlemagick.utility;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package digital.softwareshinobi.articlemagick.util;
+package digital.softwareshinobi.articlemagick.utility;
 
 public class TextWorkerUtility {
 

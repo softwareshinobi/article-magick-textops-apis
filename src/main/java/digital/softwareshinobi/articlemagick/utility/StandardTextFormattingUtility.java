@@ -9,7 +9,7 @@
  *
  *
  */
-package digital.softwareshinobi.articlemagick.util;
+package digital.softwareshinobi.articlemagick.utility;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
