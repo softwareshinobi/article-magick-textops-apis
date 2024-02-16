@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+    article-magick-web:
+
+        container_name: article-magick-web
+        
+        image: softwareshinobi/article-magick-web:2.4
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+
+        restart: always
+
+        ports:
+
+            - "80:80"
