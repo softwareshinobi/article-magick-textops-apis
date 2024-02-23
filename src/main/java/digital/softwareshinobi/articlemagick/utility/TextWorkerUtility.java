@@ -40,7 +40,6 @@ public class TextWorkerUtility {
                 cost = originalContentString.charAt(i - 1) == rewrittenContentString.charAt(j - 1) ? 0 : 1;
 
                 T[i][j] = Integer.min(Integer.min(T[i - 1][j] + 1, T[i][j - 1] + 1),
-
                         T[i - 1][j - 1] + cost);
 
             }

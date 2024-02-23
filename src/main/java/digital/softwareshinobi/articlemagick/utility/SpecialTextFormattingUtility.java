@@ -25,7 +25,7 @@ public class SpecialTextFormattingUtility {
 
         FileReadWriteOperationsUtility.writeToFile(content, tempFile);
 
-        String returnString ="\n\n"+ cleanAndFormatText(tempFile)+"\n\n" ;
+        String returnString = "\n\n" + cleanAndFormatText(tempFile) + "\n\n";
 
         tempFile.delete();
         tempFile = null;
@@ -52,13 +52,13 @@ public class SpecialTextFormattingUtility {
 
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-4-split-sentences.md"));
 
-       contentFromFile = SpecialTextFormattingUtility.capitalizeContent(contentFromFile);
-     ///   FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
+        contentFromFile = SpecialTextFormattingUtility.capitalizeContent(contentFromFile);
+        ///   FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "pass-5-correct-capitalization.md"));
 
-       contentFromFile = SpecialTextFormattingUtility.addSpacesAndStuff(contentFromFile);
+        contentFromFile = SpecialTextFormattingUtility.addSpacesAndStuff(contentFromFile);
 //        FileUtil.writeToFile(contentFromFile, new File(filePath + "pass-7-add-spaces-and-stuff.md"));
 
-    //    contentFromFile = prepContentForRewriteFormat(contentFromFile);
+        //    contentFromFile = prepContentForRewriteFormat(contentFromFile);
         FileReadWriteOperationsUtility.writeToFile(contentFromFile, new File(filePath + "convert-to-rewrite-format.dat.rytr"));
 
         File fff = new File(filePath + "-final.md");
@@ -75,7 +75,7 @@ public class SpecialTextFormattingUtility {
             buf.append("\n");
             buf.append(o.trim());
             //buf.append(o);
-        /////    buf.append("\n");
+            /////    buf.append("\n");
 
         }
         return buf.toString().trim();
@@ -180,6 +180,7 @@ public class SpecialTextFormattingUtility {
         }
         return list;
     }
+
     public static List<String> splitContentOnQuestionMarks(List<String> content) {
         System.out.println();
         System.out.println("list of all strings to process");
@@ -202,7 +203,11 @@ public class SpecialTextFormattingUtility {
             for (final String split : splitOut) {
 
                 System.out.println("???: " + split);
-             if(!split.endsWith(".")) {  list.add(split + "?");}else{list.add(split);}
+                if (!split.endsWith(".")) {
+                    list.add(split + "?");
+                } else {
+                    list.add(split);
+                }
             }
         }
         return list;

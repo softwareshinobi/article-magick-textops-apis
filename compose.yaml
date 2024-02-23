@@ -6,7 +6,7 @@ services:
 
         container_name: article-magick-api
         
-        image: softwareshinobi/article-magick-api:2.4
+        image: softwareshinobi/article-magick-api:latest
 
         build: 
 
@@ -18,4 +18,4 @@ services:
 
         ports:
 
-            - "80:8888"
+            - "38880:8888"

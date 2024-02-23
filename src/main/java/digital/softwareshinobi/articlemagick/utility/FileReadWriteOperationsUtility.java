@@ -14,11 +14,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import org.slf4j.LoggerFactory;
 
-/**
- * General File-based functionality utility class
- *
- * @author Troy Burney
- */
 public class FileReadWriteOperationsUtility {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(FileReadWriteOperationsUtility.class);
