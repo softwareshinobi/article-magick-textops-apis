@@ -146,3 +146,30 @@ services:
             VIRTUAL_HOST: docs.articlemagick.softwareshinobi.digital
 
             LETSENCRYPT_HOST: docs.articlemagick.softwareshinobi.digital
+
+
+    article-magick-links:
+
+        container_name: article-magick-links
+
+        image: softwareshinobi/article-magick-links
+
+        build: 
+
+            context: links
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - "8088:80"
+
+        expose:
+
+            - "80"
+
+        environment:
+
+            VIRTUAL_HOST: links.articlemagick.softwareshinobi.digital
+
+            LETSENCRYPT_HOST: links.articlemagick.softwareshinobi.digital
