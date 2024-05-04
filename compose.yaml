@@ -162,7 +162,7 @@ services:
 
         ports:
 
-            - "8088:80"
+            - "8000:80"
 
         expose:
 
