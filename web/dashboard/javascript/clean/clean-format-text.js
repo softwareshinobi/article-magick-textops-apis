@@ -68,7 +68,7 @@ function processForm() {
 
 		type: "POST",
 
-		url: "https://api.articlemagick.softwareshinobi.digital/article-magick/simple-format",
+		url: apiURLBase + "/simple-format",
 
 		data: textFromFirstAndSecondTextBox,
 

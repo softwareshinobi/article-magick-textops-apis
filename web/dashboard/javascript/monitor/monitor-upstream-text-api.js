@@ -19,7 +19,7 @@ function refreshStandardAPIHealthCheckStatus() {
 
 		type: "GET",
 
-		url: "https://api.articlemagick.softwareshinobi.digital/article-magick/health-check",
+		url: apiURLBase + "/health",
 
 		contentType: "application/json; charset=utf-8",
 

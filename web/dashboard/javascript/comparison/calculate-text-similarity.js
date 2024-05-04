@@ -43,7 +43,7 @@ function formatTextFromFirstTextBox() {
 
 		type: "POST",
 
-		url: "https://api.articlemagick.softwareshinobi.digital/article-magick/calculate-similarity",
+		url: apiURLBase + "/calculate-similarity",
 
 		data: textFromFirstAndSecondTextBox,
 

@@ -43,7 +43,7 @@ function processFormSTP() {
 
 		type: "POST",
 
-		url: "https://api.articlemagick.softwareshinobi.digital/article-magick/convert-to-permalink",
+		url: apiURLBase + "/convert-sentence-to-permalink",
 
         data: leftSideTextBox,
 
@@ -53,19 +53,17 @@ function processFormSTP() {
 
 		dataType: "text",
 
-		success: function (data, status, jqXHR) {
+		success: function (response, status, jqXHR) {
 
-            console.log("data", data);
+            console.log("response / ", response);
 
-            setLabelValueSTP(data);
-
+            setLabelValueSTP(response);
+		
 		},
 
-		error: function (jqXHR, status) {
+		error: function (exception, status) {
 
-			console.log("Something Went Wrong Issuing Post Request");
-
-			console.log(jqXHR);
+			console.log("error / ", exception);
 
 			console.log(status);
 
@@ -73,8 +71,4 @@ function processFormSTP() {
 
 	});
 
-	//
-
-	console.debug(" <- :: processFormSTP()");
-  
 }
