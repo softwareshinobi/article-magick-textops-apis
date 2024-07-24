@@ -1,17 +1,13 @@
 
-apiURLBase="https://apis.articlemagick.softwareshinobi.digital"
-
-// apiURLBase="http://localhost:8888"
-
-//alert("what up");
+apiURLBase="https://apis.softwareshinobi.digital/article-magick"
 
 function setProject(projectID, projectName) {
 
- console.log("enter > setProject");
+    console.log("enter > setProject");
 
- console.log("projectID / ", projectID);
+    console.log("projectID / ", projectID);
 
- console.log("projectName / ", projectName);
+    console.log("projectName / ", projectName);
 
     // console.log("apiProjectID / before / ", Cookies.get('apiProjectID') );
 
@@ -21,9 +17,9 @@ function setProject(projectID, projectName) {
 
     Cookies.set('apiProjectName', projectName);
 
- console.log("apiProjectID / after / ", Cookies.get('apiProjectID') );
+    console.log("apiProjectID / after / ", Cookies.get('apiProjectID') );
 
-console.log("apiProjectName / after / ", Cookies.get('apiProjectName') );
+    console.log("apiProjectName / after / ", Cookies.get('apiProjectName') );
 
 }
 

@@ -44,6 +44,10 @@ Dashboard template provided by Gentella.
 
 Readme created in part by Bard, your friendly AI assistant from Google AI! I love helping humans craft compelling documentation, and I'm thrilled to have worked on Article Magick's readme.
 
+## to do later
+
+add in a base page under ""
+
 ## Start your text transformation journey today!
 
 Get in the driver's seat. Click the link below to get behind the wheel of Article Magic.
