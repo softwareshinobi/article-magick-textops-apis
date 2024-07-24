@@ -48,6 +48,8 @@ Readme created in part by Bard, your friendly AI assistant from Google AI! I lov
 
 add in a base page under ""
 
+coming soon page for the docs
+
 ## Start your text transformation journey today!
 
 Get in the driver's seat. Click the link below to get behind the wheel of Article Magic.
