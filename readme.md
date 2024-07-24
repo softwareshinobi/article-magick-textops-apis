@@ -50,6 +50,10 @@ add in a base page under ""
 
 coming soon page for the docs
 
+add github link in the help center
+
+add a contact page in the help center
+
 ## Start your text transformation journey today!
 
 Get in the driver's seat. Click the link below to get behind the wheel of Article Magic.
